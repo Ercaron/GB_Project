@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a0c3ab63313be4eb8a86796085797a, type: 3}
+  m_Name: Invader
+  m_EditorClassIdentifier: 
+  _name: Invader
+  _hpMax: 10
+  _damage: 2
+  _collisionDamage: 4
+  _defense: 0
+  _cost: 2
+  _sprite: {fileID: 21300000, guid: 3ddec497128658a41b386c31019ef187, type: 3}
+  _instantiateParticles: {fileID: 0}
+  _dieParticles: {fileID: 0}
+  _projectile: {fileID: 0}
