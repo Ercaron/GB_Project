@@ -61,3 +61,13 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+Grid Battles/.vsconfig
+
+Grid Battles/UserSettings/
+
+Grid Battles/obj/
+
+Grid Battles/Logs/
+
+Grid Battles/Library/
