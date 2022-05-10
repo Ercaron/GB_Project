@@ -7,30 +7,24 @@ public class GameManager : MonoBehaviour
     UIManager _uiManager;
 
 
-    [SerializeField] GameObject _unitPrefab;
+    UnitPlacer _placer;
 
 
     [SerializeField] int _coins;
     [SerializeField] List<UnitData> _mapUnits;
 
-    private void OnEnable()
-    {
-        
-    }
 
     void Start()
     {
+        _placer = GetComponent<UnitPlacer>();
+        _placer.UnitPlaced += UnitPlaced;
+
         _uiManager = GetComponent<UIManager>();
         _uiManager.SetMapUnits(_mapUnits);
         _uiManager.UpdateCoins(_coins);
     }
 
     
-    void Update()
-    {
-        
-    }
-
 
     public void StartBattle()
     {
@@ -38,12 +32,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void CreateUnit(UnitData data, Tile tile)
+    void UnitPlaced(UnitData data)
     {
-        Unit newUnit = Instantiate(_unitPrefab).GetComponent<Unit>();
-        newUnit.UnitData = data;
-        tile.Unit = newUnit;
-
-
+        _coins -= data.Cost;
+        _uiManager.UpdateCoins(_coins);
     }
+
+    
 }

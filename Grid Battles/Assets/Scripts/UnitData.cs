@@ -11,6 +11,7 @@ public class UnitData : ScriptableObject
     [SerializeField] int _collisionDamage;
     [SerializeField] int _defense;//just in case ELVOLUMEN
     [SerializeField] int _cost;
+    [SerializeField] GameObject _prefab;
     [SerializeField] Sprite _sprite;
     [SerializeField] GameObject _instantiateParticles;
     [SerializeField] GameObject _dieParticles;
@@ -26,4 +27,5 @@ public class UnitData : ScriptableObject
     public GameObject InstantiateParticles { get => _instantiateParticles; set => _instantiateParticles = value; }
     public GameObject DieParticles { get => _dieParticles; set => _dieParticles = value; }
     public GameObject Projectile { get => _projectile; set => _projectile = value; }
+    public GameObject Prefab { get => _prefab; set => _prefab = value; }
 }

@@ -18,6 +18,7 @@ MonoBehaviour:
   _collisionDamage: 4
   _defense: 0
   _cost: 2
+  _prefab: {fileID: 3139900263854591516, guid: 948cc08c7034a39499b0ce4f53737725, type: 3}
   _sprite: {fileID: 21300000, guid: 3ddec497128658a41b386c31019ef187, type: 3}
   _instantiateParticles: {fileID: 0}
   _dieParticles: {fileID: 0}

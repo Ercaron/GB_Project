@@ -15,12 +15,13 @@ public class Unit : MonoBehaviour
 
     UnitData _unitData;
 
-    public UnitData UnitData { get => _unitData; set { _unitData = value; SetData(); } }
+    public UnitData UnitData { get => _unitData; set { _unitData = value; Debug.Log("data set"); SetData(); } }
 
 
 
-    void Start()
+    void OnEnable()
     {
+        _spRenderer = GetComponent<SpriteRenderer>();
         
     }
 
@@ -28,6 +29,6 @@ public class Unit : MonoBehaviour
     void SetData()
     {
         //InstantiateParticles
-        _spRenderer.sprite = UnitData.Sprite;
+        _spRenderer.sprite = _unitData.Sprite;
     }
 }

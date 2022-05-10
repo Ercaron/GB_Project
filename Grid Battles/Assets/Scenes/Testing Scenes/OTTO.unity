@@ -1340,6 +1340,7 @@ GameObject:
   - component: {fileID: 1777819638}
   - component: {fileID: 1777819637}
   - component: {fileID: 1777819636}
+  - component: {fileID: 1777819639}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1373,8 +1374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa788e075f7e2046b741f3c2c30c311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 0}
-  _coins: 5
+  _coins: 10
   _mapUnits:
   - {fileID: 11400000, guid: 2f46df2ddca90f3479a0f9e3777510f2, type: 2}
   - {fileID: 11400000, guid: d1875db5da9f4304497b855d8bcc6fa2, type: 2}
@@ -1393,6 +1393,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777819639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777819635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17883affbc642f3419e8199b64a4029d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedUnit: {fileID: 0}
 --- !u!1001 &1817359096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1849,6 +1862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2107706238898457086, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2107706238898457087, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1933,5 +1950,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2107706239248552951, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
+      propertyPath: _unitPlacer
+      value: 
+      objectReference: {fileID: 1777819639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
