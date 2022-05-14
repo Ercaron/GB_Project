@@ -53,7 +53,7 @@ public class MouseNavigation : MonoBehaviour
             Vector3 cameraMoveVector;
             Debug.Log(_currentMousePosition);
             Debug.Log(_nextMousePosition);
-            Debug.Log("Drag difference: " + (_currentMousePosition - _nextMousePosition));
+          //Debug.Log("Drag difference: " + (_currentMousePosition - _nextMousePosition));
 
 
             _nextMousePosition = Input.mousePosition;

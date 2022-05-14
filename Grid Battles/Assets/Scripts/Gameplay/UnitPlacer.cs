@@ -59,9 +59,10 @@ public class UnitPlacer : MonoBehaviour
     {
         Unit newUnit = Instantiate(data.Prefab).GetComponent<Unit>();
         newUnit.UnitData = data;
+        newUnit.transform.parent = tile.transform;
+        newUnit.transform.localPosition = Vector3.zero + new Vector3(0, 0.5f, 0);
+        
         tile.Unit = newUnit;
-        newUnit.transform.position = tile.transform.position + new Vector3(0, 1, 0);//Ponerlo en el medio, either poner un gameobject vacio en la posicion o hacer calculo de width y height
-
 
         UnitPlaced(data);
 
