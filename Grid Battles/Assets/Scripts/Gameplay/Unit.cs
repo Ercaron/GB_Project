@@ -13,16 +13,26 @@ public class Unit : MonoBehaviour
     Tile _currentTile;
     SpriteRenderer _spRenderer;
 
-    UnitData _unitData;
+    [SerializeField] UnitData _unitData;
 
-    public UnitData UnitData { get => _unitData; set { _unitData = value; Debug.Log("data set"); SetData(); } }
+    
+
+    public UnitData UnitData { get => _unitData; set { _unitData = value; SetData(); } }
 
 
 
     void OnEnable()
     {
         _spRenderer = GetComponent<SpriteRenderer>();
-        
+
+        if (gameObject.layer == 8)//Enemy layer
+            _spRenderer.material.color = Color.red;
+
+        if (_unitData)
+        {
+            SetData();
+        }
+
     }
 
 
@@ -30,5 +40,10 @@ public class Unit : MonoBehaviour
     {
         //InstantiateParticles
         _spRenderer.sprite = _unitData.Sprite;
+    }
+
+    public virtual void Action()
+    {
+
     }
 }

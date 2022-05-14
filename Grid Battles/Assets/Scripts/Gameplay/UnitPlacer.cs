@@ -61,7 +61,7 @@ public class UnitPlacer : MonoBehaviour
         newUnit.UnitData = data;
         newUnit.transform.parent = tile.transform;
         newUnit.transform.localPosition = Vector3.zero + new Vector3(0, 0.5f, 0);
-        
+
         tile.Unit = newUnit;
 
         UnitPlaced(data);

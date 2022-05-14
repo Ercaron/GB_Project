@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] int _coins;
-    [SerializeField] List<UnitData> _mapUnits;
+    [SerializeField] List<UnitData> _levelUnits;
 
 
     void Start()
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         _placer.UnitPlaced += UnitPlaced;
 
         _uiManager = GetComponent<UIManager>();
-        _uiManager.SetMapUnits(_mapUnits);
+        _uiManager.SetMapUnits(_levelUnits);
         _uiManager.UpdateCoins(_coins);
     }
 
