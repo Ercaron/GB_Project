@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class MouseNavigation : MonoBehaviour
 {
-    [SerializeField] float dragSensibility;
+    [SerializeField] float _dragSensibility;
     bool _isDragging;
 
     Vector3 _currentMousePosition;
     Vector3 _nextMousePosition;
+
+    [SerializeField] float _maxZoomSensibility;
+    float _zoomSensibility;
 
     private void Awake()
     {
@@ -20,7 +23,22 @@ public class MouseNavigation : MonoBehaviour
 
     private void Update()
     {
-        Drag(IsItDragging());
+        if  (IsItDragging())
+        {
+            Drag();
+        }
+        else if(IsItZooming())
+        {
+            _zoomSensibility = 0.1f * Camera.main.transform.position.y;
+            if (Input.mouseScrollDelta.y == 1)
+            {
+                ZoomIn();
+            }
+            else
+            {
+                ZoomOut();
+            }
+        }
     }
 
     private bool IsItDragging()
@@ -46,20 +64,34 @@ public class MouseNavigation : MonoBehaviour
         }
         return _isDragging;
     }
-    private void Drag(bool IsDragging)
+    private bool IsItZooming()
     {
-        if(IsDragging)
+        if(Input.mouseScrollDelta.y != 0)
         {
-            Vector3 cameraMoveVector;
-            Debug.Log(_currentMousePosition);
-            Debug.Log(_nextMousePosition);
-          //Debug.Log("Drag difference: " + (_currentMousePosition - _nextMousePosition));
-
-
-            _nextMousePosition = Input.mousePosition;
-            cameraMoveVector = new Vector3(_currentMousePosition.x - _nextMousePosition.x, 0, _currentMousePosition.y - _nextMousePosition.y);
-            Camera.main.transform.position += (cameraMoveVector / 100) * dragSensibility;
-            _currentMousePosition = _nextMousePosition;
+            return true;
         }
+        return false;
+    }
+    private void Drag()
+    {
+        Vector3 cameraMoveVector;
+        Debug.Log(_currentMousePosition);
+        Debug.Log(_nextMousePosition);
+        //Debug.Log("Drag difference: " + (_currentMousePosition - _nextMousePosition));
+
+
+        _nextMousePosition = Input.mousePosition;
+        cameraMoveVector = new Vector3(_currentMousePosition.x - _nextMousePosition.x, 0, _currentMousePosition.y - _nextMousePosition.y);
+        Camera.main.transform.position += (cameraMoveVector / 100) * _dragSensibility;
+        _currentMousePosition = _nextMousePosition;
+    }
+
+    private void ZoomIn()
+    {
+        Camera.main.transform.position += new Vector3(0, -_maxZoomSensibility * _zoomSensibility, 0);
+    }
+    private void ZoomOut()
+    {
+        Camera.main.transform.position += new Vector3(0, _maxZoomSensibility * _zoomSensibility, 0);
     }
 }
