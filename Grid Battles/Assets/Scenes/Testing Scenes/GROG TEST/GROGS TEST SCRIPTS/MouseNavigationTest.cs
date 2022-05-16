@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class MouseNavigation : MonoBehaviour
+public class MouseNavigationTest : MonoBehaviour
 {
     [SerializeField] float _dragSensibility;
     bool _isDragging;
@@ -23,13 +22,13 @@ public class MouseNavigation : MonoBehaviour
 
     private void Update()
     {
-        if  (IsItDragging())
+        if (IsItDragging())
         {
             Drag();
         }
-        else if(IsItZooming())
+        else if (IsItZooming())
         {
-            _zoomSensibility = 0.1f * Camera.main.transform.position.y;
+            _zoomSensibility = 0.1f * Camera.main.transform.position.z;
             if (Input.mouseScrollDelta.y == 1)
             {
                 ZoomIn();
@@ -67,7 +66,7 @@ public class MouseNavigation : MonoBehaviour
     }
     private bool IsItZooming()
     {
-        if(Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0)
         {
             return true;
         }
@@ -82,17 +81,17 @@ public class MouseNavigation : MonoBehaviour
 
 
         _nextMousePosition = Input.mousePosition;
-        cameraMoveVector = new Vector3(_currentMousePosition.x - _nextMousePosition.x, 0, _currentMousePosition.y - _nextMousePosition.y);
+        cameraMoveVector = new Vector3(_currentMousePosition.x - _nextMousePosition.x, _currentMousePosition.y - _nextMousePosition.y, 0);
         Camera.main.transform.position += (cameraMoveVector / 100) * _dragSensibility;
         _currentMousePosition = _nextMousePosition;
     }
 
     private void ZoomIn()
     {
-        Camera.main.transform.position += new Vector3(0, -_maxZoomSensibility * _zoomSensibility, 0);
+        Camera.main.transform.position += new Vector3(0,0, -_maxZoomSensibility * _zoomSensibility);
     }
     private void ZoomOut()
     {
-        Camera.main.transform.position += new Vector3(0, _maxZoomSensibility * _zoomSensibility, 0);
+        Camera.main.transform.position += new Vector3(0,0, _maxZoomSensibility * _zoomSensibility);
     }
 }
