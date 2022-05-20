@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2300a3bf8ca80364b928675c222f23a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _height: 9
-  _width: 16
-  _gridTilePrefab: {fileID: 1287208193999604841, guid: 6649d32f24a9fb34aaaea075816c757b, type: 3}
+  _height: 30
+  _width: 30
+  _gridTilePrefab: {fileID: 5222654985455570515, guid: 6649d32f24a9fb34aaaea075816c757b, type: 3}
   _mainCameraTransform: {fileID: 1787731382}
 --- !u!4 &147166357
 Transform:
@@ -362,6 +362,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2107706238898457087, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107706239010530332, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2107706239248552951, guid: fff3521ec82873d4d913b56fe689bb21, type: 3}
