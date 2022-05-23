@@ -5,23 +5,16 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-
-    GameManager _gManager;
-
-
+    public static UIManager instance;
     //UI Play
-
     [SerializeField] UnitSelector _unitSelector;
     [SerializeField] TextMeshProUGUI _coinsText;
 
-    void Start()
-    {
-        _gManager = GetComponent<GameManager>();
-        
-        //Suscribe to Start battle from UI button
-    }
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
     public void SetMapUnits(List<UnitData> units)
     {
         _unitSelector.SetUnits(units);
