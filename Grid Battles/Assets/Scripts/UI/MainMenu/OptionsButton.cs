@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class OptionsButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] AudioClip _clickedAudioClip;
+    [SerializeField] AudioSource _audioSource;
 
-    // Update is called once per frame
-    void Update()
+    public void OnButtonClick()
     {
-        
+        _audioSource.PlayOneShot(_clickedAudioClip);
+        Debug.Log("Clicked Options Button");
     }
 }

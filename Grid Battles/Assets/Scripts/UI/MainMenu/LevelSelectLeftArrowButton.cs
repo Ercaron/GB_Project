@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitButton : MonoBehaviour
+public class LevelSelectLeftArrowButton : MonoBehaviour
 {
     [SerializeField] AudioClip _clickedAudioClip;
     [SerializeField] AudioSource _audioSource;
 
+    [SerializeField] UILevelSelectManager _levelSelectManagerReference;
+
     public void OnButtonClick()
     {
         _audioSource.PlayOneShot(_clickedAudioClip);
-        Debug.Log("Clicked Exit Button");
-        Application.Quit();
+        _levelSelectManagerReference.PreviousSheet();
     }
 }

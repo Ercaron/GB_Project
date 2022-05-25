@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class LevelSelectButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] AudioClip _clickedAudioClip;
+    [SerializeField] AudioSource _audioSource;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] GameObject _levelSelectGO;
+    [SerializeField] GameObject _mainScreenGO;
+
+    public void OnButtonClick()
     {
-        
+        _audioSource.PlayOneShot(_clickedAudioClip);
+        _levelSelectGO.SetActive(true);
+        _mainScreenGO.SetActive(false);
+        Debug.Log("Clicked LevelSelect Button");
     }
 }
